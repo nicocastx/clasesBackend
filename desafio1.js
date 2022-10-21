@@ -33,7 +33,10 @@ let mascotas = ["Juan", "Tom", "Miguel"]
 
 let p1 = new Usuario("nico", "kevin", libros , mascotas)
 
-p1.addBook("juasd", "asdasd")
-console.log(p1.getBookNames())
-
 console.log(p1.getFullName())
+p1.addMascota("asd")
+console.log(p1)
+console.log(p1.countMascotas())
+p1.addBook("libro", "autor de libro")
+console.log(p1)
+console.log(p1.getBookNames())
