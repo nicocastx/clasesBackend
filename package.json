@@ -1,0 +1,23 @@
+{
+  "name": "clasesbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "desafio1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicocastx/clasesBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicocastx/clasesBackend/issues"
+  },
+  "homepage": "https://github.com/nicocastx/clasesBackend#readme",
+  "dependencies": {
+    "npm": "^8.19.2"
+  }
+}
