@@ -1,0 +1,12 @@
+[
+  {
+    "nombre": "prueba1",
+    "razon": "ser una prueba",
+    "id": 1
+  }
+    {
+    "nombre": "prueba2",
+    "razon": "ser una prueba",
+    "id": 2
+  }
+]

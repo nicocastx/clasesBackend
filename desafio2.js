@@ -1,9 +1,9 @@
 const fs = require("fs");
 
-/*function asignarId(info){
-    let listaIds = info.map(({id}) => id)
-    return listaNum.length in listaNum ? listaNum.length + 2 : listaNum.length + 1
-}*/
+function asignarId(info){
+    let listaNum = info.map(({id}) => id)
+    return listaNum.includes(listaNum.length + 1) ? (Math.max(...listaNum) + 1) : (listaNum.length + 1)
+}
 
 class Contenedor{
     constructor(nombreArchivo){
@@ -12,16 +12,11 @@ class Contenedor{
 
     async save(obj){
         try{
-            let id = await fs.promises.readFile(this.nombreArchivo, "utf-8")
+            let id = await this.getAll()
             .then(data => {
-                if(data == ""){
-                    data = "[]"
-                }
-                console.log( "esta es la data en el save: " + data);
-                let info = JSON.parse(data)
-                obj.id = info.length + 1
-                info.push(obj)
-                fs.writeFile(this.nombreArchivo, JSON.stringify(info), (err) =>{
+                obj.id = asignarId(data)
+                data.push(obj)
+                fs.writeFile(this.nombreArchivo, JSON.stringify(data, null, 2), (err) =>{
                     if (err){
                         throw new Error(err);
                     }
@@ -29,10 +24,10 @@ class Contenedor{
                 return obj.id
             })
             .then(id => id)
-            .catch(console.log("concha de la lora"))
+            .catch()
             return id
         }catch(err){
-            console.log(err);
+            console.log("ha occurido un error D: xd :" + err);
             }
     }
     
@@ -55,12 +50,12 @@ class Contenedor{
         try{
             let lista = await fs.promises.readFile(this.nombreArchivo, "utf-8")
             .then(data =>{
+                if(data == ""){
+                    data = "[]"
+                }
                 let info = JSON.parse(data)
                 return info
             })
-            .then(
-                res => res
-            )
             return lista
         }catch(err){
             console.log("Ocurrio un error al obtener los archivos: \n" + err);
@@ -72,7 +67,7 @@ class Contenedor{
             fs.promises.readFile(this.nombreArchivo, "utf-8")
             .then(data =>{
                 let info = JSON.parse(data)
-                fs.writeFile(this.nombreArchivo, JSON.stringify(info.filter(obj => obj.id != num)), (err) =>{
+                fs.writeFile(this.nombreArchivo, JSON.stringify(info.filter(obj => obj.id != num), null, 2), (err) =>{
                     if (err){
                         throw new Error(err);
                     }
@@ -82,13 +77,33 @@ class Contenedor{
             console.log("Ocurrio un error al borrar el archivo: \n" + error);
         }
     }
+    
+    async deleteAll(){
+        try {
+            fs.promises.writeFile(this.nombreArchivo, "")
+        } catch (error) {
+            console.log("ocurrio un error borrando el archivo: " + error);
+        }
+    }
 };
 
-const c1 = new Contenedor("productos.txt");
+async function asd(){
+    const c1 = new Contenedor("productos.txt");
+    let id =  await c1.getAll()
+    .then(() => c1.save({nombre: "prueba1", razon: "ser una prueba"}))
+    .then(() => c1.save({nombre: "prueba2", razon: "ser una prueba"}))
+    let lista = await c1.getAll();
+    let obj = await c1.getById(1)
+    console.log("el id:" + id);
+    console.log("la lista : ")
+    lista.map(producto => console.log(producto));
+    console.log("el objeto: ");
+    console.log(obj);
+    c1.deleteById(1)
+    c1.deleteAll()
+}
 
-c1.save({nombre: "prueba<", razon: "ser una prueba"})
-c1.deleteById(1)
-
+asd()
 /*.then(c1.getAll().then(data => console.log(data)))
 .then(c1.getById(4).then(id => console.log(id)))*/
 
