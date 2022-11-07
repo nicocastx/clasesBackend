@@ -87,7 +87,9 @@ class Contenedor{
     }
 };
 
-async function asd(){
+
+module.exports = Contenedor
+/*async function asd(){
     const c1 = new Contenedor("productos.txt");
     let id =  await c1.getAll()
     .then(() => c1.save({nombre: "prueba1", razon: "ser una prueba"}))
@@ -95,15 +97,13 @@ async function asd(){
     let lista = await c1.getAll();
     let obj = await c1.getById(1)
     console.log("el id:" + id);
-    console.log("la lista : ")
     lista.map(producto => console.log(producto));
     console.log("el objeto: ");
     console.log(obj);
     c1.deleteById(1)
     c1.deleteAll()
-}
+}*/
 
-asd()
 /*.then(c1.getAll().then(data => console.log(data)))
 .then(c1.getById(4).then(id => console.log(id)))*/
 
