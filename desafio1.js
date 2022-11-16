@@ -29,7 +29,7 @@ class Usuario{
 
 let libros = [{nombre: "Luna de Pluton", autor: "Dross"}, {nombre: "xd", autor: "Edgar Allan Poe"}]
 
-let mascotas = ["Juan", "Tom", "Miguel"]
+/*let mascotas = ["Juan", "Tom", "Miguel"]
 
 let p1 = new Usuario("nico", "kevin", libros , mascotas)
 
@@ -39,4 +39,16 @@ console.log(p1)
 console.log(p1.countMascotas())
 p1.addBook("libro", "autor de libro")
 console.log(p1)
-console.log(p1.getBookNames())
+console.log(p1.getBookNames())*/
+
+let oracion = "hola como estas"
+
+oracion = oracion.split(" ")
+
+
+
+oracion = oracion.map(word => word.length > 4 ? word.split("").reverse().join("") : word)
+
+oracion = oracion.join(" ")
+
+console.log(oracion);

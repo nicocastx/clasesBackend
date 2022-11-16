@@ -14,8 +14,16 @@ class Contenedor{
         try{
             let id = await this.getAll()
             .then(data => {
-                obj.id = asignarId(data)
-                data.push(obj)
+                if (obj.id == undefined){
+                    obj.id = asignarId(data)
+                }
+                let existeId = -1
+                existeId = data.findIndex(prod => prod.id === obj.id)
+                if (existeId != -1){
+                    data[existeId] = obj
+                } else{
+                    data.push(obj)
+                }
                 fs.writeFile(this.nombreArchivo, JSON.stringify(data, null, 2), (err) =>{
                     if (err){
                         throw new Error(err);
@@ -89,12 +97,13 @@ class Contenedor{
 
 
 module.exports = Contenedor
-/*async function asd(){
+async function asd(){
     const c1 = new Contenedor("productos.txt");
     let id =  await c1.getAll()
-    .then(() => c1.save({nombre: "prueba1", razon: "ser una prueba"}))
-    .then(() => c1.save({nombre: "prueba2", razon: "ser una prueba"}))
-    let lista = await c1.getAll();
+    //.then(() => c1.save({id:8, nombre: "pruebaxdxd", razon: "ser una prueba"}))
+    //.then(() => c1.getById(2).then(data => console.log(data)))
+}
+/*    let lista = await c1.getAll();
     let obj = await c1.getById(1)
     console.log("el id:" + id);
     lista.map(producto => console.log(producto));
@@ -107,7 +116,7 @@ module.exports = Contenedor
 /*.then(c1.getAll().then(data => console.log(data)))
 .then(c1.getById(4).then(id => console.log(id)))*/
 
-
+//asd()
 
 
 

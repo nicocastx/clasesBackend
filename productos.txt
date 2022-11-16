@@ -1,7 +1,7 @@
 [
   {
-    "nombre": "prueba1",
-    "precio": 10,
+    "nombre": "pruebaa",
+    "razon": "ser una prueba",
     "id": 1
   },
   {
@@ -13,5 +13,15 @@
     "nombre": "prueba3",
     "precio": 15,
     "id": 3
+  },
+  {
+    "id": 8,
+    "nombre": "pruebaxdd",
+    "razon": "ser una prueba"
+  },
+  {
+    "nombre": "pruebaaaa",
+    "razon": "ser una prueba",
+    "id": 5
   }
 ]
