@@ -1,0 +1,2 @@
+##ELECCION DE PLANTILLA
+La plantilla que mas me gusto fue la de ejs debido a la mezcla que no es tan dificil de acomodarse entre html y javascript, y siento que hay mas faciliaridad con esta, ademas que por la utilidad siento que tiene mas utilidad la de EJS
