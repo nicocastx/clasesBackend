@@ -70,12 +70,13 @@ routerProducto.delete("/:id", (req, res) =>{
 
 app.use("/api/productos", routerProducto)
 
-const PORT = 8080
+const PORT = 8079
 
 const server = app.listen(PORT,(err)=>{
     if(err) console.log("Ocurrio un error " + err);
     console.log("Escuchando en el servidor " + PORT);
 })
+
 
 
 

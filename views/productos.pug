@@ -1,0 +1,23 @@
+extends layout
+
+block manejoProductos
+    div(style="width:100%;" class="tableContainer")
+        h2(style="text-align:center;") Lista de Productos 
+        h2(style="color:crimson;text-align:center;") Historial 
+        if hasProd
+            div(class="table-responsive")
+                table(class="table table-dark" style="text-align:center")
+                    tr(style="color: yellow;")
+                        th Nombre
+                        th Precio 
+                        th Imagen 
+                    each producto in data 
+                        tr 
+                            td= producto.nombre
+                            td= '$' + producto. precio
+                            td 
+                                img(style="width:8vw;" src=producto.img alt="imagen de prod " + producto.id)
+        else
+            h2 No existen Productos
+        button(onclick="window.location.href='/'") Ir al Inicio 
+
