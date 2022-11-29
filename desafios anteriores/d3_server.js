@@ -1,4 +1,4 @@
-const Contenedor = require("./d2_contenedor.js")
+const Contenedor = require("../d2_contenedor.js")
 const express = require("express")
 
 const app = express()

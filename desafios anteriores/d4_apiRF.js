@@ -1,7 +1,7 @@
 const { Router } = require("express")
 const express = require("express")
 const multer = require("multer")
-const Contenedor = require("./d2_contenedor.js")
+const Contenedor = require("../d2_contenedor.js")
 
 app = express()
 

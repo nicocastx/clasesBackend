@@ -32,11 +32,15 @@ class Contenedor{
                 return obj.id
             })
             .then(id => id)
-            .catch()
+            .catch((err) =>{
+                obj.id = 1
+                fs.promises.appendFile(this.nombreArchivo, JSON.stringify(obj, null, 2))
+                console.log('hola, acabo de crear un archivo');
+            })
             return id
         }catch(err){
-            console.log("ha occurido un error D: xd :" + err);
-            }
+            
+        }
     }
     
     async getById(num){
@@ -97,10 +101,12 @@ class Contenedor{
 
 
 module.exports = Contenedor
-async function asd(){
-    const c1 = new Contenedor("productos.txt");
-    let id =  await c1.getAll()
-    //.then(() => c1.save({id:8, nombre: "pruebaxdxd", razon: "ser una prueba"}))
+
+
+/*async function asd(){
+    const c1 = new Contenedor("productoszzz.txt");
+    //let id =  await c1.getAll()
+    c1.save({id:8, nombre: "pruebaxdxd", razon: "ser una prueba"})
     //.then(() => c1.getById(2).then(data => console.log(data)))
 }
 /*    let lista = await c1.getAll();

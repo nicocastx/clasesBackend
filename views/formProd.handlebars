@@ -3,7 +3,7 @@
         <h1 style="color:blue;">Ingrese datos</h1>
         <br />
 
-        <form action="/" method="post">
+        <form onsubmit="return addProducto()">
 
             <div class="form-group">
                 <label for="nombre"><b>Nombre</b></label>
@@ -20,9 +20,55 @@
                 <input id="img" class="form-control" type="text" name="img" />
             </div>
 
-            <button class="btn btn-success mt-3 mb-5">Enviar</button>
+            <input type="submit" onclick="return agregarProducto()" class="btn btn-success mt-3 mb-5"
+                value="Enviar"></input>
         </form>
     </div>
+</div>
+<div id="chatContainer">
+    <section style="background-color: #eee;">
+        <div class="container py-5">
 
-    <button onclick="window.location.href='/productos'">Ir a Productos</button>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-16 col-lg-12 col-xl-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center p-3"
+                            style="border-top: 4px solid #ffa900;">
+                            <h5 class="mb-0">Chat messages</h5>
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="fas fa-minus me-3 text-muted fa-xs"></i>
+                                <i class="fas fa-comments me-3 text-muted fa-xs"></i>
+                                <i class="fas fa-times text-muted fa-xs"></i>
+                            </div>
+                        </div>
+                        <div id="msjContainer" class="card-body overflow-auto" data-mdb-perfect-scrollbar="true"
+                            style="position: relative; height: 400px">
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+                            <div class="input-group mb-0">
+                                <input id="email" type="email" class="form-control" placeholder="Ingrese su mail"
+                                    aria-describedby="button-addon2" />
+                                <input id="text" type="text" class="form-control" placeholder="Ingrese su mensaje"
+                                    aria-describedby="button-addon2" />
+                                <button class="btn btn-warning" onclick="return agregarMensaje()" type="button"
+                                    id="button-addon2" style="padding-top: .55rem;">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div style="width:100%;" class="tableContainer">
+    <h2 style="text-align:center;">Lista de Productos</h2>
+    <h2 style="color:crimson;text-align:center;">Historial</h2>
+    {{#if hasProd}}
+    <div id="tablaProd" class="table-responsive">
+    </div>
+    {{else}}
+    <h2>No existen Productos</h2>
+    {{/if}}
 </div>

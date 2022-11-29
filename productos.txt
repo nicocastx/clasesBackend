@@ -18,27 +18,33 @@
     "img": "https://www.theonering.com/wp-content/uploads/2020/11/gandalf-laughing.jpg"
   },
   {
-    "nombre": "pruebaa",
-    "precio": 5,
+    "nombre": "sdffds",
+    "precio": "21313123",
+    "img": "https://www.theonering.com/wp-content/uploads/2020/11/gandalf-laughing.jpg",
+    "id": 4
+  },
+  {
+    "nombre": "sdffds",
+    "precio": "21313123",
     "img": "https://www.theonering.com/wp-content/uploads/2020/11/gandalf-laughing.jpg",
     "id": 5
   },
   {
-    "nombre": "hola",
-    "precio": "23",
-    "img": "sd",
-    "id": 9
-  },
-  {
-    "nombre": "productopug",
-    "precio": "34",
+    "nombre": "sdffds",
+    "precio": "21313123",
     "img": "https://www.theonering.com/wp-content/uploads/2020/11/gandalf-laughing.jpg",
     "id": 6
   },
   {
-    "nombre": "productoejs",
-    "precio": "50",
+    "nombre": "productos desde otro lado",
+    "precio": "456546",
     "img": "https://www.theonering.com/wp-content/uploads/2020/11/gandalf-laughing.jpg",
     "id": 7
+  },
+  {
+    "nombre": "sdffds",
+    "precio": "21313123",
+    "img": "https://www.theonering.com/wp-content/uploads/2020/11/gandalf-laughing.jpg",
+    "id": 9
   }
 ]
