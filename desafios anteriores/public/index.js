@@ -79,18 +79,3 @@ const agregarMensaje = ()=>{
 
     return false
 }
-
-/*
-<div class="d-flex justify-content-between">
-    <p class="small mb-1">Timona Siera</p>
-    <p class="small mb-1 text-muted">23 Jan 2:00 pm</p>
-</div>
-<div class="d-flex flex-row justify-content-start">
-    <div>
-        <p class="small p-2 ms-3 mb-3 rounded-3" style="background-color: #f5f6f7;">For what
-            reason
-            would it
-            be advisable for me to think about business content?</p>
-    </div>
-</div>
-*/
