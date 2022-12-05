@@ -3,7 +3,7 @@ const {
     Producto,
     dbProducto
 } = require('../persistencia/productoPerst')
-const isAdmin = false
+const isAdmin = true
 
 const DBProducto = new dbProducto()
 const errorAuth = (ruta, metodo) =>{
