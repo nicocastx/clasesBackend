@@ -70,7 +70,6 @@ const agregarMensaje = ()=>{
             email: emailhtml,
             text: texthtml
         }
-    
         socket.emit('newMsj', nuevoMsj)
     } else{
         alert('Debe ingresar un mensaje y su mail')

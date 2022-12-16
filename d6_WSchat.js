@@ -37,6 +37,7 @@ app.set('view engine', "handlebars")
 app.get('/', (req, res) => {
     cProd.getAll()
         .then(data => {
+            console.log(data);
             res.render('formProd', {
                 data: data,
                 hasProd: data.length > 0
@@ -52,6 +53,7 @@ io.on('connection', socket => {
     socket.emit('productos', productos)
 
     socket.on('newProd', nuevoProd => {
+        nuevoProd.fecha = new Date().toLocaleString()
         productos.push(nuevoProd)
         io.sockets.emit('productos', productos)
         cProd.save(nuevoProd)
