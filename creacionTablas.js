@@ -5,7 +5,7 @@ import {
 import {optionsMDB} from './options/configmdb.js'
 
 
-knex(optionsSQLT).schema.dropTableIfExists('mensajes')
+/*knex(optionsSQLT).schema.dropTableIfExists('mensajes')
     .finally(() => {
         return knex(optionsSQLT).schema.createTable('mensajes', table => {
             table.increments('id').primary().unsigned()
@@ -15,7 +15,6 @@ knex(optionsSQLT).schema.dropTableIfExists('mensajes')
         })
     })
 
-    /*
     knex(optionsMDB).schema.hasTable('productos')
     .finally(() => {
         knex(optionsMDB).schema.createTable('productos', table => {
@@ -27,8 +26,5 @@ knex(optionsSQLT).schema.dropTableIfExists('mensajes')
             table.string('url', 300).notNullable()
             table.float('precio')
             table.integer('stock').notNullable()
-        })
-        .finally(()=>{
-            knex(options).destroy()
         })
     })*/
