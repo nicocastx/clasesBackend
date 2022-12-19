@@ -1,11 +1,13 @@
 import knex from 'knex'
 import {
-    options
+    optionsSQLT
 } from './options/configsqlite.js'
+import {optionsMDB} from './options/configmdb.js'
 
-/*knex(options).schema.dropTableIfExists('mensajes')
+
+knex(optionsSQLT).schema.dropTableIfExists('mensajes')
     .finally(() => {
-        return knex(options).schema.createTable('mensajes', table => {
+        return knex(optionsSQLT).schema.createTable('mensajes', table => {
             table.increments('id').primary().unsigned()
             table.string('email', 150).notNullable()
             table.string('text', 1500)
@@ -13,9 +15,10 @@ import {
         })
     })
 
-    knex(options).schema.hasTable('productos')
+    /*
+    knex(optionsMDB).schema.hasTable('productos')
     .finally(() => {
-        knex(options).schema.createTable('productos', table => {
+        knex(optionsMDB).schema.createTable('productos', table => {
             table.increments('id').primary().unsigned()
             table.dateTime('fecha').notNullable()
             table.string('nombre', 100).notNullable()

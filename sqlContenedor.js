@@ -34,11 +34,19 @@ class SqlContenedor {
     }
 
     async getById(id){
-        return this.knex(this.tabla).select('*').where('id', '=', id)
+        try {
+            return this.knex(this.tabla).select('*').where('id', '=', id)
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     async deleteById(id){
-        return this.knex(this.tabla).where('id', '=', id).delete()
+        try {
+            return this.knex(this.tabla).where('id', '=', id).delete()
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
