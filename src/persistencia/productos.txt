@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "timestamp": 1670102294902,
+    "nombre": "asd",
+    "descripcion": "asdasd",
+    "codigo": " 3123123",
+    "url": "asdasd.com",
+    "precio": 123,
+    "stock": 23
+  },
+  {
+    "id": 2,
+    "timestamp": 1670102294902,
+    "nombre": "asd",
+    "descripcion": "asdasd",
+    "codigo": " 3123123",
+    "url": "asdasd.com",
+    "precio": 123,
+    "stock": 23
+  }
+]
