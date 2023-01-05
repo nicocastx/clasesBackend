@@ -1,11 +1,10 @@
 //const {Carrito, dbCarritos} = require('../persistencia/carritoPerst')
-import {Carrito, dbCarritos} from '../persistencia/carritoPerstfs.js'
+import {dbCarritos} from '../persistencia/carritoPerst.js'
 
 const DBCarritos = new dbCarritos()
 
 const postCarrito = (req, res) =>{
-    const carrito = new Carrito()
-    DBCarritos.save(carrito)
+    DBCarritos.save()
     .then(id => res.send({idCarrito : id}))
     
 }

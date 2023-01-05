@@ -1,11 +1,11 @@
 //TODO: Crear manejo de req, res de las peticiones HTTP de productos
 //const {Producto,dbProducto} = require('../persistencia/productoPerst')
-import {dbProducto} from '../persistencia/productoPerstfs.js'
+import {dbProductos} from '../persistencia/productoPerst.js'
 
 
 const isAdmin = true
 
-const DBProducto = new dbProducto()
+const DBProducto = new dbProductos()
 const errorAuth = (ruta, metodo) =>{
     return {error: -1, descripcion: `ruta ${ruta} metodo ${metodo} no autorizada}`}
 }
@@ -53,7 +53,7 @@ const putProds = (req, res) => {
     const {
         body
     } = req
-    const prod = new Producto(body.nombre, body.descripcion, body.codigo, body.url, body.precio, body.stock)
+    const prod = {nombre:body.nombre, descripcion: body.descripcion, codigo: body.codigo, url: body.url, precio: body.precio, stock: body.stock, timestamp: Date.now()}
     prod.id = Number(id)
     DBProducto.save(prod)
     res.send({
