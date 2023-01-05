@@ -4,6 +4,10 @@ import express from 'express'
 import { URL } from 'url'
 import routerCarrito from './src/routes/carritoRouter.js'
 import routerProductos from './src/routes/productoRouter.js'
+import { conexionMDB } from './src/persistencia/configMDB.js'
+
+//Inicio de conexion servidores
+//conexionMDB
 
 //functions
 const errorNI= (ruta, metodo)=>{

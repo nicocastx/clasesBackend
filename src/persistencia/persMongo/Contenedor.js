@@ -1,12 +1,5 @@
 import mongoose from 'mongoose'
 
-const URL = 'mongodb+srv://nicocastx:qwerty654321@coderbackend.pv6yegc.mongodb.net/proyectoFinal?retryWrites=true&w=majority'
-
-mongoose.connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-
 export class contenedorMDB{
     constructor(model){
         this.model = model
