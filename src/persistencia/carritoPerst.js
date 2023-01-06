@@ -73,11 +73,3 @@ export class dbCarritos extends contenedorFB {
         return await this.col.doc(idCart).set(carrito)
     }
 }
-
-const dbfb = new dbCarritos('carritos')
-
-try {
-    console.log(await dbfb.addProdCarrito('Vuh4nd0u6CvI47zQmkWq', 'fPMWqQWwaxryQHvvE91e'))
-} catch (error) {
-    console.log(error);
-}
