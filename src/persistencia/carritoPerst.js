@@ -50,8 +50,8 @@ export class dbCarritos extends contenedorMDB {
     }
 }*/
 export class dbCarritos extends contenedorFB {
-    constructor(col) {
-        super(col)
+    constructor() {
+        super('carritos')
     }
 
     async save() {
