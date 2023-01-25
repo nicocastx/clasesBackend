@@ -96,6 +96,9 @@ socket.on("productosTest", (data) => {
   document.getElementById("tablaProductos").innerHTML = tabla;
 });
 
+
+//Funciones
+
 const agregarProducto = () => {
   const nuevoProd = {
     nombre: document.getElementById("nombre").value,
@@ -133,6 +136,6 @@ const agregarMensaje = () => {
   } else {
     alert("Debe ingresar datos faltantes");
   }
-
   return false;
 };
+
