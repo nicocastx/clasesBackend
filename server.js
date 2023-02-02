@@ -7,18 +7,23 @@ import handlebars from "express-handlebars";
 import { conexionMDB } from "./options/optionsmdb.js";
 import { faker } from "@faker-js/faker";
 import { contenedorMDB } from "./ContenedorMDB.js";
+//importacion de modelos
 import { msjModel } from "./models/mensajes.js";
 import { prodModel } from "./models/producto.js";
+import { userModel } from "./models/usuarios.js";
+//importacion de normalizr
 import { normalize, schema } from "normalizr";
-import util from "util";
-
-//importacion modulos desafio login por formulario ------------------------------------------------------------------------------------------
+//importacion modulos desafio login por formulario
 import session from "express-session";
 import MongoStore from "connect-mongo";
 const advOptionsMongo = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
+//importacion modulos localStrategy
+import passport from "passport";
+import { Strategy as localStrategy } from "passport-local";
+import bCrypt from "bcrypt";
 
 //Servidor mongoose ------------------------------------------------------------------------------------------
 conexionMDB;
@@ -28,6 +33,7 @@ conexionMDB;
 //variables de collections
 const cProd = new contenedorMDB(prodModel);
 const cMsg = new contenedorMDB(msjModel);
+const cUsers = new contenedorMDB(userModel);
 
 //variables express
 const app = express();
@@ -48,8 +54,8 @@ while (i < 5) {
   };
   productosTest.push(newProd);
 }
-//Variables inicio de sesion
-let nombreUsuario = "";
+let usuarios = [];
+cUsers.getAll().then((data) => (usuarios = data));
 
 //esquemas de normalizr ------------------------------------------------------------------------------------------
 const schAuthor = new schema.Entity("author", {}, { idAttribute: "mail" });
@@ -66,7 +72,7 @@ const schMsjs = new schema.Entity("mensajes", {
   mensajes: [schMsj],
 });
 
-//Normalize ------------------------------------------------------------------------------------------
+//#region Normalize
 let normMsjs = [];
 let msjsNotNorm = [];
 
@@ -79,8 +85,8 @@ cMsg.getAll().then((data) => {
   };
   normMsjs = normalize(msjsNotNorm, schMsjs);
 });
-
-//configuracion de app ------------------------------------------------------------------------------------------
+//#endregion Normalize
+//#region configuracion de app
 app.use(
   express.urlencoded({
     extended: true,
@@ -111,33 +117,122 @@ app.engine("handlebars", handlebars.engine());
 app.set("views", "./views");
 app.set("view engine", "handlebars");
 
-//Enrutamiento ------------------------------------------------------------------------------------------
-app.get("/", (req, res) => {
-  if (!req.session.nombre) {
-    if (req.query.nombreUser) {
-      const { nombreUser } = req.query;
-      req.session.nombre = nombreUser;
-      res.redirect("/");
-    } else {
-      res.redirect("/login");
-    }
-  } else {
-    cProd.getAll().then((data) => {
-      res.render("formProd", {
-        data: data,
-        hasProd: data.length > 0,
-        nombreUsuario: req.session.nombre,
+//#endregion configuracion de app
+//Configuracion de passport ------------------------------------------------------------------------------------------
+passport.use(
+  "register",
+  new localStrategy(
+    {
+      passReqToCallback: true,
+    },
+    (req, username, password, done) => {
+      const usuario = usuarios.find((usuario) => usuario.email == username);
+      if (usuario) {
+        console.log("el usuario ya existe");
+        return done(null, false);
+      }
+
+      const newUser = {
+        email: username,
+        password: createHash(password),
+      };
+
+      usuarios.push(newUser);
+
+      cUsers.save(newUser).then(() => {
+        console.log("se creo el usuario");
+        return done(null, newUser);
       });
-    });
-  }
+    }
+  )
+);
+
+passport.use(
+  "login",
+  new localStrategy((email, password, done) => {
+    const usuario = usuarios.find((usuario) => usuario.email == email);
+    if (!usuario) {
+      console.log("no existe el usuario");
+      return done(null, false);
+    }
+    if (!validPassword(usuario, password)) {
+      console.log("contrasena invalida");
+      return done(null, false);
+    }
+
+    return done(null, usuario);
+  })
+);
+
+//funciones de bCrypt
+function createHash(password) {
+  return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
+}
+
+function validPassword(user, password) {
+  return bCrypt.compareSync(password, user.password);
+}
+
+//funciones serialize y deserialize
+passport.serializeUser((user, done) => {
+  done(null, user.email);
+});
+
+passport.deserializeUser((email, done) => {
+  const usuario = usuarios.find((usuario) => usuario.email == email);
+  done(null, usuario);
+});
+
+//inicio de passport en app
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Enrutamiento ------------------------------------------------------------------------------------------
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.post(
+  "/register",
+  passport.authenticate("register", {
+    failureRedirect: "/failregister",
+    successRedirect: "/login",
+  })
+);
+
+app.get("/failregister", (req, res) => {
+  res.render("failregister");
 });
 
 app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.post(
+  "/login",
+  passport.authenticate("login", {
+    failureRedirect: "/loginerror",
+    successRedirect: "/",
+  })
+);
+
+app.get("/loginerror", (req, res) => {
+  res.render("faillogin");
+});
+
+app.get("/", isAuth, (req, res) => {
+  cProd.getAll().then((data) => {
+    res.render("formProd", {
+      data: data,
+      hasProd: data.length > 0,
+      nombreUsuario: req.user.email,
+    });
+  });
+});
+
 app.get("/logout", (req, res) => {
-  const usuarioName = req.session.nombre;
+  const usuarioName = req.user.email;
   req.session.destroy((err) => {
     if (err) {
       res.send({ error: "Algo occurio al borrar la session", body: err });
@@ -157,6 +252,14 @@ app.get("/api/productos-test", async (req, res) => {
 });
 
 // Middlewares ------------------------------------------------------------------------------------------
+function isAuth(req, res, next) {
+  console.log(req.isAuthenticated());
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
 
 //Manejo de sockets ------------------------------------------------------------------------------------------
 io.on("connection", (socket) => {

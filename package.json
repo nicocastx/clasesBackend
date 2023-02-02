@@ -20,6 +20,7 @@
   "homepage": "https://github.com/nicocastx/clasesBackend#readme",
   "dependencies": {
     "@fakerjs/faker": "^3.0.0",
+    "bcrypt": "^5.1.0",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
@@ -36,6 +37,8 @@
     "nodemon": "^2.0.20",
     "normalizr": "^3.6.2",
     "npm": "^8.19.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "socket.io": "^4.5.4",
     "sqlite3": "^5.1.4"

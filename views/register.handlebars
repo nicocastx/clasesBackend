@@ -1,0 +1,25 @@
+<div class="card" style="border-radius: 15px;">
+  <div class="card-body p-5">
+    <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+    <form class="form" action="/register" method="post"  role="form">
+
+      <div class="form-outline mb-4">
+        <input type="email" id="username" name="username" class="form-control form-control-lg" required/>
+        <label class="form-label" for="username">Tu Email</label>
+      </div>
+
+      <div class="form-outline mb-4">
+        <input type="password" id="password" name="password" class="form-control form-control-lg" required/>
+        <label class="form-label" for="password" >Ingresa tu contraseña</label>
+      </div>
+      
+      <div class="d-flex justify-content-center">
+        <input type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" value="Registrarse"/>
+      </div>
+    </form>
+
+          <p class="text-center text-muted mt-5 mb-0">Ya tienes una cuenta? <a href="/login"
+          class="fw-bold text-body"><u>Inicia sesion aqui</u></a></p>
+
+  </div>
+</div>

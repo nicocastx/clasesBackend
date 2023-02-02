@@ -1,6 +1,10 @@
 const socket = io();
 
-const schAuthor = new normalizr.schema.Entity("author", {}, { idAttribute: "mail" });
+const schAuthor = new normalizr.schema.Entity(
+  "author",
+  {},
+  { idAttribute: "mail" }
+);
 
 const schMsj = new normalizr.schema.Entity(
   "mensaje",
@@ -15,9 +19,8 @@ const schMsjs = new normalizr.schema.Entity("mensajes", {
 });
 
 socket.on("mensajes", (data) => {
+  msjDenorm = normalizr.denormalize(data.result, schMsjs, data.entities);
 
-  msjDenorm = normalizr.denormalize(data.result, schMsjs, data.entities)
-  
   const htmlMsjs = msjDenorm.mensajes
     .map((msj) => {
       return `
@@ -96,7 +99,6 @@ socket.on("productosTest", (data) => {
   document.getElementById("tablaProductos").innerHTML = tabla;
 });
 
-
 //Funciones
 
 const agregarProducto = () => {
@@ -113,24 +115,24 @@ const agregarProducto = () => {
 
 const agregarMensaje = () => {
   let emailhtml = document.getElementById("email").value;
-  let nombrehtml = document.getElementById('name').value
-  let apellidohtml = document.getElementById('apellido').value
-  let edadhtml = document.getElementById('edad').value
-  let aliashtml = document.getElementById('alias').value
-  let avatarhtml = document.getElementById('avatar').value
+  let nombrehtml = document.getElementById("name").value;
+  let apellidohtml = document.getElementById("apellido").value;
+  let edadhtml = document.getElementById("edad").value;
+  let aliashtml = document.getElementById("alias").value;
+  let avatarhtml = document.getElementById("avatar").value;
   let texthtml = document.getElementById("text").value;
 
   if (emailhtml != "" && texthtml != "") {
     const nuevoMsj = {
-      author:{
-        mail:emailhtml,
+      author: {
+        mail: emailhtml,
         nombre: nombrehtml,
         apellido: apellidohtml,
         edad: edadhtml,
         alias: aliashtml,
-        avatar: avatarhtml
+        avatar: avatarhtml,
       },
-      text: texthtml
+      text: texthtml,
     };
     socket.emit("newMsj", nuevoMsj);
   } else {
@@ -138,4 +140,3 @@ const agregarMensaje = () => {
   }
   return false;
 };
-

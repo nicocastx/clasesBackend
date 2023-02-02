@@ -1,8 +1,14 @@
-<form action="/" method="get">
+<form action="/login" method="post" role = 'form'>
   <div class="form-group">
-    <label for="nombreSubmit">Ingrese su nombre</label>
-    <input type="text" class="form-control" id="nombreSubmit" aria-describedby="nameHelp"
-      placeholder="Ingrese su nombre" name="nombreUser">
+    <label for="emailSubmit">Ingrese su email</label>
+    <input type="text" class="form-control" id="emailSubmit" aria-describedby="nameHelp"
+      placeholder="Ingrese su email" name="username">
   </div>
-  <button onsubmit="return loguear()" type="submit" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Ingrese su contraseña">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <p class="text-center text-muted mt-5 mb-0">No tienes una cuenta? <a href="/register"
+          class="fw-bold text-body"><u>Registrate aqui</u></a></p>
 </form>
