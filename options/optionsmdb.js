@@ -1,8 +1,17 @@
 import mongoose from "mongoose"
+import dotenv from 'dotenv'
 
-const URL = 'mongodb+srv://nicocastx:qwerty654321@coderbackend.pv6yegc.mongodb.net/desafioMYN?retryWrites=true&w=majority'
+import * as url from 'url';
 
-export const conexionMDB = mongoose.connect(URL, {
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+dotenv.config(
+    {path: __dirname + '../.env'}
+)
+
+const URLDB = process.env.URLDB
+
+export const conexionMDB = mongoose.connect(URLDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

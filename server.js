@@ -24,9 +24,26 @@ const advOptionsMongo = {
 import passport from "passport";
 import { Strategy as localStrategy } from "passport-local";
 import bCrypt from "bcrypt";
+//importacion modulos procesos
+import dotenv from 'dotenv'
+import parseArgs from 'yargs/yargs'
+import { fork } from "child_process";
+
+//importacion de manejo de dirname
+import * as url from 'url';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 //Servidor mongoose ------------------------------------------------------------------------------------------
 conexionMDB;
+
+//configuracion de parametros de proceso
+const yargs = parseArgs(process.argv.slice(2))
+
+//Configuracion de dotenv ------------------------------------------------------------------------------------------
+dotenv.config(
+  {path: __dirname + '../.env'}
+)
 
 //Inicializacion de variables ------------------------------------------------------------------------------------------
 
@@ -35,7 +52,7 @@ const cProd = new contenedorMDB(prodModel);
 const cMsg = new contenedorMDB(msjModel);
 const cUsers = new contenedorMDB(userModel);
 
-//variables express
+//Variables express
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
@@ -43,6 +60,7 @@ const io = new Server(httpServer);
 //Variables manejo de objetos
 let productos = [];
 cProd.getAll().then((data) => (productos = data));
+//Variables y asignacion de productos por faker
 let productosTest = [];
 let i = 0;
 while (i < 5) {
@@ -57,7 +75,7 @@ while (i < 5) {
 let usuarios = [];
 cUsers.getAll().then((data) => (usuarios = data));
 
-//esquemas de normalizr ------------------------------------------------------------------------------------------
+//#region esquemas de normalizr
 const schAuthor = new schema.Entity("author", {}, { idAttribute: "mail" });
 
 const schMsj = new schema.Entity(
@@ -72,6 +90,7 @@ const schMsjs = new schema.Entity("mensajes", {
   mensajes: [schMsj],
 });
 
+//#endregion esquemas de normalizr
 //#region Normalize
 let normMsjs = [];
 let msjsNotNorm = [];
@@ -98,7 +117,7 @@ app.use(
   session({
     store: MongoStore.create({
       mongoUrl:
-        "mongodb+srv://nicocastx:qwerty654321@coderbackend.pv6yegc.mongodb.net/desafioCookies?retryWrites=true&w=majority",
+        process.env.DBSESSION,
       mongoOptions: advOptionsMongo,
       ttl: 60,
       autoRemove: "native",
@@ -106,7 +125,9 @@ app.use(
     cookie: {
       maxAge: 10 * 60 * 1000,
     },
-    secret: "secreto",
+    secret: 
+    //"secreto",
+    process.env.SECRETSESSION,
     resave: false,
     saveUninitialized: false,
   })
@@ -118,7 +139,7 @@ app.set("views", "./views");
 app.set("view engine", "handlebars");
 
 //#endregion configuracion de app
-//Configuracion de passport ------------------------------------------------------------------------------------------
+//#region Configuracion de passport
 passport.use(
   "register",
   new localStrategy(
@@ -187,7 +208,8 @@ passport.deserializeUser((email, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Enrutamiento ------------------------------------------------------------------------------------------
+//#endregion Configuracion de passport
+//#region Enrutamiento 
 
 app.get("/register", (req, res) => {
   res.render("register");
@@ -251,9 +273,41 @@ app.get("/api/productos-test", async (req, res) => {
   });
 });
 
-// Middlewares ------------------------------------------------------------------------------------------
+app.get('/info', (req, res)=>{
+  res.render('info', {
+    args : process.argv.slice(2),
+    nOS : process.platform,
+    vNODE : process.version,
+    memUsage : process.memoryUsage().rss,
+    exPath : process.cwd(),
+    pid : process.pid,
+    file: process.cwd().split('\\').pop()
+  })
+})
+
+app.get('/api/randoms', (req, res) =>{
+  let {cant} = req.query
+  if(!cant){
+    cant = 100000
+  }
+  const contadorFork = fork(__dirname +  'contador.js')
+  contadorFork.on('message', result =>{
+    if(result == 'listo'){
+      contadorFork.send(cant)
+    } else{
+      res.render('randoms', {
+        randomObj : JSON.stringify(result)
+      })
+    }
+  })
+  
+})
+
+//#endregion Enrutamiento
+//#region Funciones
+//#endregion Funciones
+//#region Middlewares
 function isAuth(req, res, next) {
-  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     next();
   } else {
@@ -261,7 +315,9 @@ function isAuth(req, res, next) {
   }
 }
 
-//Manejo de sockets ------------------------------------------------------------------------------------------
+//#endregion Middlewares
+
+//#region Manejo de sockets
 io.on("connection", (socket) => {
   console.log("nuevo cliente conectado");
 
@@ -290,8 +346,19 @@ io.on("connection", (socket) => {
   socket.emit("productosTest", productosTest);
 });
 
+//#endregion Manejo de sockets
+
+
+
+
 //inicio de servidor
-const PORT = 8080;
+const {PORT} = yargs
+.alias({
+  p:'PORT'
+})
+.default({
+  PORT: 8080
+}).argv
 
 httpServer.listen(PORT, () => {
   console.log(`Escuchando en el puerto ${PORT}`);
