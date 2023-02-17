@@ -25,25 +25,26 @@ import passport from "passport";
 import { Strategy as localStrategy } from "passport-local";
 import bCrypt from "bcrypt";
 //importacion modulos procesos
-import dotenv from 'dotenv'
-import parseArgs from 'yargs/yargs'
+import dotenv from "dotenv";
+import parseArgs from "yargs/yargs";
 import { fork } from "child_process";
+//importacion modulos cluster
+import cluster from "cluster";
+import os from "os";
 
 //importacion de manejo de dirname
-import * as url from 'url';
+import * as url from "url";
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 //Servidor mongoose ------------------------------------------------------------------------------------------
 conexionMDB;
 
 //configuracion de parametros de proceso
-const yargs = parseArgs(process.argv.slice(2))
+const yargs = parseArgs(process.argv.slice(2));
 
 //Configuracion de dotenv ------------------------------------------------------------------------------------------
-dotenv.config(
-  {path: __dirname + '../.env'}
-)
+dotenv.config({ path: __dirname + "../.env" });
 
 //Inicializacion de variables ------------------------------------------------------------------------------------------
 
@@ -60,6 +61,7 @@ const io = new Server(httpServer);
 //Variables manejo de objetos
 let productos = [];
 cProd.getAll().then((data) => (productos = data));
+
 //Variables y asignacion de productos por faker
 let productosTest = [];
 let i = 0;
@@ -74,6 +76,20 @@ while (i < 5) {
 }
 let usuarios = [];
 cUsers.getAll().then((data) => (usuarios = data));
+
+//inicio de servidor
+const { PORT, MODO } = yargs
+  .alias({
+    p: "PORT",
+    m: "MODO",
+  })
+  .default({
+    PORT: 8080,
+    MODO: "fork",
+  }).argv;
+
+// Variables del numero de cpus para iniciar en cluster
+const numCPUs = os.cpus().length;
 
 //#region esquemas de normalizr
 const schAuthor = new schema.Entity("author", {}, { idAttribute: "mail" });
@@ -116,8 +132,7 @@ app.use(express.static("./public"));
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl:
-        process.env.DBSESSION,
+      mongoUrl: process.env.DBSESSION,
       mongoOptions: advOptionsMongo,
       ttl: 60,
       autoRemove: "native",
@@ -125,9 +140,9 @@ app.use(
     cookie: {
       maxAge: 10 * 60 * 1000,
     },
-    secret: 
-    //"secreto",
-    process.env.SECRETSESSION,
+    secret:
+      //"secreto",
+      process.env.SECRETSESSION,
     resave: false,
     saveUninitialized: false,
   })
@@ -209,101 +224,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //#endregion Configuracion de passport
-//#region Enrutamiento 
-
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-app.post(
-  "/register",
-  passport.authenticate("register", {
-    failureRedirect: "/failregister",
-    successRedirect: "/login",
-  })
-);
-
-app.get("/failregister", (req, res) => {
-  res.render("failregister");
-});
-
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
-app.post(
-  "/login",
-  passport.authenticate("login", {
-    failureRedirect: "/loginerror",
-    successRedirect: "/",
-  })
-);
-
-app.get("/loginerror", (req, res) => {
-  res.render("faillogin");
-});
-
-app.get("/", isAuth, (req, res) => {
-  cProd.getAll().then((data) => {
-    res.render("formProd", {
-      data: data,
-      hasProd: data.length > 0,
-      nombreUsuario: req.user.email,
-    });
-  });
-});
-
-app.get("/logout", (req, res) => {
-  const usuarioName = req.user.email;
-  req.session.destroy((err) => {
-    if (err) {
-      res.send({ error: "Algo occurio al borrar la session", body: err });
-    } else {
-      res.render("logout", {
-        nombreUsuario: usuarioName,
-      });
-    }
-  });
-});
-
-app.get("/api/productos-test", async (req, res) => {
-  res.render("prodTest", {
-    data: productosTest,
-    hasProd: productosTest.length > 0,
-  });
-});
-
-app.get('/info', (req, res)=>{
-  res.render('info', {
-    args : process.argv.slice(2),
-    nOS : process.platform,
-    vNODE : process.version,
-    memUsage : process.memoryUsage().rss,
-    exPath : process.cwd(),
-    pid : process.pid,
-    file: process.cwd().split('\\').pop()
-  })
-})
-
-app.get('/api/randoms', (req, res) =>{
-  let {cant} = req.query
-  if(!cant){
-    cant = 100000
-  }
-  const contadorFork = fork(__dirname +  'contador.js')
-  contadorFork.on('message', result =>{
-    if(result == 'listo'){
-      contadorFork.send(cant)
-    } else{
-      res.render('randoms', {
-        randomObj : JSON.stringify(result)
-      })
-    }
-  })
-  
-})
-
-//#endregion Enrutamiento
 //#region Funciones
 //#endregion Funciones
 //#region Middlewares
@@ -316,7 +236,6 @@ function isAuth(req, res, next) {
 }
 
 //#endregion Middlewares
-
 //#region Manejo de sockets
 io.on("connection", (socket) => {
   console.log("nuevo cliente conectado");
@@ -347,19 +266,114 @@ io.on("connection", (socket) => {
 });
 
 //#endregion Manejo de sockets
+//#region Enrutamiento
+if (MODO === "cluster" && cluster.isPrimary) {
+  console.log(numCPUs);
+  console.log(`Maestro ejecutado con el ID: ${process.pid}`);
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+  cluster.on("exit", (worker) => {
+    console.log(
+      `Worker ${worker.process.pid} died: ${new Date().toLocaleString()}`
+    );
+  });
+} else {
+  console.log(`El proceso worker se inicio en ${process.pid}`);
+  app.get("/register", (req, res) => {
+    res.render("register");
+  });
 
+  app.post(
+    "/register",
+    passport.authenticate("register", {
+      failureRedirect: "/failregister",
+      successRedirect: "/login",
+    })
+  );
 
+  app.get("/failregister", (req, res) => {
+    res.render("failregister");
+  });
 
+  app.get("/login", (req, res) => {
+    res.render("login");
+  });
 
-//inicio de servidor
-const {PORT} = yargs
-.alias({
-  p:'PORT'
-})
-.default({
-  PORT: 8080
-}).argv
+  app.post(
+    "/login",
+    passport.authenticate("login", {
+      failureRedirect: "/loginerror",
+      successRedirect: "/",
+    })
+  );
 
-httpServer.listen(PORT, () => {
-  console.log(`Escuchando en el puerto ${PORT}`);
-});
+  app.get("/loginerror", (req, res) => {
+    res.render("faillogin");
+  });
+
+  app.get("/", isAuth, (req, res) => {
+    cProd.getAll().then((data) => {
+      res.render("formProd", {
+        data: data,
+        hasProd: data.length > 0,
+        nombreUsuario: req.user.email,
+      });
+    });
+  });
+
+  app.get("/logout", (req, res) => {
+    const usuarioName = req.user.email;
+    req.session.destroy((err) => {
+      if (err) {
+        res.send({ error: "Algo occurio al borrar la session", body: err });
+      } else {
+        res.render("logout", {
+          nombreUsuario: usuarioName,
+        });
+      }
+    });
+  });
+
+  app.get("/api/productos-test", async (req, res) => {
+    res.render("prodTest", {
+      data: productosTest,
+      hasProd: productosTest.length > 0,
+    });
+  });
+
+  app.get("/info", (req, res) => {
+    res.render("info", {
+      args: process.argv.slice(2),
+      nOS: process.platform,
+      vNODE: process.version,
+      memUsage: process.memoryUsage().rss,
+      exPath: process.cwd(),
+      pid: process.pid,
+      file: process.cwd().split("\\").pop(),
+      numCPUs: numCPUs,
+    });
+  });
+
+  app.get("/api/randoms", (req, res) => {
+    let { cant } = req.query;
+    if (!cant) {
+      cant = 100000;
+    }
+    const contadorFork = fork(__dirname + "contador.js");
+    contadorFork.on("message", (result) => {
+      if (result == "listo") {
+        contadorFork.send(cant);
+      } else {
+        res.render("randoms", {
+          randomObj: JSON.stringify(result)
+        });
+      }
+    });
+  });
+
+  httpServer.listen(PORT, () => {
+    console.log(`Escuchando en el puerto ${PORT}`);
+  });
+}
+//#endregion Enrutamiento

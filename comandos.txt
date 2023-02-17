@@ -1,0 +1,58 @@
+nodemon server.js  
+
+nodemon server.js -m cluster
+
+forever start server.js -m cluster
+warn:    --minUptime not set. Defaulting to: 1000ms
+warn:    --spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms
+info:    Forever processing file: server.js
+(node:6908) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6908) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+
+forever list
+(node:10492) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10492) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+info:    Forever processes running
+data:        uid  command                            script                           
+                                          forever pid  id logfile                     
+         uptime
+data:    [0] cEOr "C:\Program Files\nodejs\node.exe" C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\server.js -m cluster 24308   9684    C:\Users\nicocastx\.forever\cEOr.log 0:0:0:52.63
+
+forever stop
+
+
+pm2 start server.js --name="serverEnFork" --watch -- -p 8081    
+
+pm2 start server.js --name="serverEnCluster" -f -i max  --watch -- -p 8082  
+[PM2] Starting C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\server.js in cluster_mode (0 instance)
+[PM2] Done.
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │       
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤       
+│ 1  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 111.1mb  │       
+│ 2  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 109.9mb  │       
+│ 3  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 110.0mb  │       
+│ 4  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 109.9mb  │       
+│ 5  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 109.6mb  │       
+│ 6  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 108.7mb  │       
+│ 7  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 103.9mb  │       
+│ 8  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 102.8mb  │       
+│ 9  │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 91.5mb   │       
+│ 10 │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 79.9mb   │       
+│ 11 │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 83.7mb   │       
+│ 12 │ serverEnCluster    │ cluster  │ 0    │ online    │ 0%       │ 75.0mb   │       
+│ 0  │ serverEnFork       │ fork     │ 0    │ online    │ 0%       │ 81.5mb   │       
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴────────
+
+pm2 start server.js --name="serverEnCluster" -f  --watch -- -p 8082 -m cluster
+┌─────┬────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name               │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ serverEnCluster    │ default     │ 1.0.0   │ fork    │ 23996    │ 45s    │ 0    │ online    │ 0%       │ 81.2mb   │ nic… │ enabled  │
+
+no sabia si se referia a usar el modo cluster de pm2 o el modo cluster del servidor, asi que testee ambos
+
+pm2 delete all
+
