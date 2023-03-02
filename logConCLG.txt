@@ -1,0 +1,616 @@
+Statistical profiling result from unlog.log, (65777 ticks, 3 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+  62497   95.0%          C:\Windows\SYSTEM32\ntdll.dll
+   3031    4.6%          C:\Program Files\nodejs\node.exe
+      2    0.0%          C:\Windows\System32\KERNEL32.DLL
+      1    0.0%          C:\Windows\System32\WS2_32.dll
+      1    0.0%          C:\Windows\System32\KERNELBASE.dll
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     21    0.0%    8.6%  LazyCompile: *wrap C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+     16    0.0%    6.5%  LazyCompile: *SourceNode_walk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:221:53
+     11    0.0%    4.5%  LazyCompile: *resolve node:path:158:10
+     10    0.0%    4.1%  RegExp: ^(?:[^\x00]*?(?=(\{\{)))
+      9    0.0%    3.7%  LazyCompile: *parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      7    0.0%    2.9%  LazyCompile: *deserializeObject C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bson\lib\parser\deserializer.js:65:27
+      6    0.0%    2.4%  LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      6    0.0%    2.4%  LazyCompile: *SourceNode_add C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:172:51
+      5    0.0%    2.0%  LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:174:29
+      4    0.0%    1.6%  LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:177:16
+      4    0.0%    1.6%  LazyCompile: *generateList C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:143:38
+      3    0.0%    1.2%  RegExp: (?:\r\n?|\n).*
+      3    0.0%    1.2%  LazyCompile: *nextTick node:internal/process/task_queues:103:18
+      3    0.0%    1.2%  LazyCompile: *anonymous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:12:42
+      2    0.0%    0.8%  RegExp: ^(?:\}\}\}\})
+      2    0.0%    0.8%  RegExp: ^(?:\{\{(~)?&)
+      2    0.0%    0.8%  RegExp: ^(?:[^\x00]+)
+      2    0.0%    0.8%  LazyCompile: *template C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\runtime.js:52:18
+      2    0.0%    0.8%  LazyCompile: *set C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\application.js:359:23
+      2    0.0%    0.8%  LazyCompile: *pushAsyncContext node:internal/async_hooks:539:26
+      2    0.0%    0.8%  LazyCompile: *passLookupPropertyOption C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\runtime.js:366:34
+      2    0.0%    0.8%  LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      2    0.0%    0.8%  LazyCompile: *_storeHeader node:_http_outgoing:420:22
+      2    0.0%    0.8%  LazyCompile: *__generator C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:27:58
+      2    0.0%    0.8%  LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:30:40
+      2    0.0%    0.8%  Function: ^session C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\index.js:179:26
+      2    0.0%    0.8%  Function: ^processTimers node:internal/timers:492:25
+      2    0.0%    0.8%  Function: ^hrtime node:internal/process/per_thread:80:16
+      2    0.0%    0.8%  Function: ^format C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\content-type\index.js:65:17
+      2    0.0%    0.8%  Function: ^DerivedLogger.<computed> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\lib\winston\create-logger.js:71:47
+      1    0.0%    0.4%  RegExp: ^text\/|^application\/(javascript|json)
+      1    0.0%    0.4%  RegExp: ^\/login\/?$
+      1    0.0%    0.4%  RegExp: ^(?:\}(~)?\}\})
+      1    0.0%    0.4%  RegExp: ^(?:\{\{(~)?\s*else\s*(~)?\}\})
+      1    0.0%    0.4%  RegExp: ^(?:\{\{(~)?>)
+      1    0.0%    0.4%  RegExp: ^(?:\))
+      1    0.0%    0.4%  RegExp: ^(?:[\/.])
+      1    0.0%    0.4%  RegExp: ^((?:@[^/\\%]+\/)?[^./\\%][^/\\%]*)(\/.*)?$
+      1    0.0%    0.4%  RegExp: ;\s*charset\s*=
+      1    0.0%    0.4%  RegExp: (^|\r?\n)\s*?$
+      1    0.0%    0.4%  LazyCompile: *trim_prefix C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:293:23
+      1    0.0%    0.4%  LazyCompile: *realpathSync node:fs:2474:22
+      1    0.0%    0.4%  LazyCompile: *quotedString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      1    0.0%    0.4%  LazyCompile: *pushStackLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:877:46
+      1    0.0%    0.4%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:67:35
+      1    0.0%    0.4%  LazyCompile: *parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\node_modules\minimatch\minimatch.js:413:9
+      1    0.0%    0.4%  LazyCompile: *opcode C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:347:26
+      1    0.0%    0.4%  LazyCompile: *onwrite node:internal/streams/writable:428:17
+      1    0.0%    0.4%  LazyCompile: *once node:events:646:44
+      1    0.0%    0.4%  LazyCompile: *objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      1    0.0%    0.4%  LazyCompile: *normalize node:path:304:12
+      1    0.0%    0.4%  LazyCompile: *join node:path:421:7
+      1    0.0%    0.4%  LazyCompile: *isWindowsDeviceRoot node:path:60:29
+      1    0.0%    0.4%  LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1    0.0%    0.4%  LazyCompile: *initAsyncResource node:internal/timers:154:27
+      1    0.0%    0.4%  LazyCompile: *get node:_http_incoming:112:16
+      1    0.0%    0.4%  LazyCompile: *emit node:events:460:44
+      1    0.0%    0.4%  LazyCompile: *each C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:91:22
+      1    0.0%    0.4%  LazyCompile: *debug C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\debug\src\debug.js:65:17
+      1    0.0%    0.4%  LazyCompile: *castChunk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:52:19
+      1    0.0%    0.4%  LazyCompile: *appendContent C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:375:40
+      1    0.0%    0.4%  LazyCompile: *afterWriteTick node:internal/streams/writable:485:24
+      1    0.0%    0.4%  LazyCompile: *accept C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\visitor.js:57:26
+      1    0.0%    0.4%  LazyCompile: *Writable.write node:internal/streams/writable:336:36
+      1    0.0%    0.4%  LazyCompile: *Writable.write C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston-transport\node_modules\readable-stream\lib\_stream_writable.js:286:37
+      1    0.0%    0.4%  LazyCompile: *SubExpression C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:236:40
+      1    0.0%    0.4%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:630:37
+      1    0.0%    0.4%  LazyCompile: *Long.isLong C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bson\lib\long.js:236:28
+      1    0.0%    0.4%  LazyCompile: *C node:internal/deps/cjs-module-lexer/dist/lexer:1:1152
+      1    0.0%    0.4%  LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:130:39
+      1    0.0%    0.4%  LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:251:47
+      1    0.0%    0.4%  LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:227:47
+      1    0.0%    0.4%  Function: ^write C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:427:15
+      1    0.0%    0.4%  Function: ^value node:internal/console/constructor:315:20
+      1    0.0%    0.4%  Function: ^validateString node:internal/validators:161:24
+      1    0.0%    0.4%  Function: ^validateNumber node:internal/validators:176:24
+      1    0.0%    0.4%  Function: ^unenroll node:timers:78:18
+      1    0.0%    0.4%  Function: ^toRealPath node:internal/modules/cjs/loader:440:20
+      1    0.0%    0.4%  Function: ^toBin C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\commands.js:345:10
+      1    0.0%    0.4%  Function: ^stripFlags C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\helpers.js:52:20
+      1    0.0%    0.4%  Function: ^setHeader node:_http_outgoing:642:57
+      1    0.0%    0.4%  Function: ^res.get C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:811:19
+      1    0.0%    0.4%  Function: ^replaceStack C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:892:38
+      1    0.0%    0.4%  Function: ^refresh node:internal/timers:207:10
+      1    0.0%    0.4%  Function: ^readPackage node:internal/modules/cjs/loader:326:21
+      1    0.0%    0.4%  Function: ^prepareMustache C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\helpers.js:99:25
+      1    0.0%    0.4%  Function: ^popStack C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:960:30
+      1    0.0%    0.4%  Function: ^parserOnIncoming node:_http_server:968:26
+      1    0.0%    0.4%  Function: ^parserOnHeadersComplete node:_http_common:72:33
+      1    0.0%    0.4%  Function: ^onStatError C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\send\index.js:412:57
+      1    0.0%    0.4%  Function: ^onMessage C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:157:14
+      1    0.0%    0.4%  Function: ^objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:1002:40
+      1    0.0%    0.4%  Function: ^objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      1    0.0%    0.4%  Function: ^now C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:537:13
+      1    0.0%    0.4%  Function: ^normalizeParseOptions C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\qs\lib\parse.js:204:59
+      1    0.0%    0.4%  Function: ^next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\send\index.js:757:17
+      1    0.0%    0.4%  Function: ^measureRoundTripTime C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:288:30
+      1    0.0%    0.4%  Function: ^maybeReadMore_ C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\node_modules\readable-stream\lib\_stream_readable.js:523:24
+      1    0.0%    0.4%  Function: ^log C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\lib\winston\transports\console.js:44:6
+      1    0.0%    0.4%  Function: ^isWindowsDeviceRoot node:path:60:29
+      1    0.0%    0.4%  Function: ^isObjectLike C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bson\lib\parser\utils.js:95:22
+      1    0.0%    0.4%  Function: ^isEncoding node:buffer:535:40
+      1    0.0%    0.4%  Function: ^initialize C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\passport\lib\middleware\initialize.js:51:29
+      1    0.0%    0.4%  Function: ^importModuleDynamicallyWrap node:internal/vm/module:436:37
+      1    0.0%    0.4%  Function: ^glob C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\glob.js:62:15
+      1    0.0%    0.4%  Function: ^get node:internal/streams/writable:790:8
+      1    0.0%    0.4%  Function: ^get node:internal/console/constructor:209:14
+      1    0.0%    0.4%  Function: ^get node:internal/bootstrap/node:421:8
+      1    0.0%    0.4%  Function: ^generate C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\index.js:363:22
+      1    0.0%    0.4%  Function: ^fulfilled C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:21:27
+      1    0.0%    0.4%  Function: ^emitCloseNT node:internal/streams/destroy:120:21
+      1    0.0%    0.4%  Function: ^deserializeObject C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bson\lib\parser\deserializer.js:65:27
+      1    0.0%    0.4%  Function: ^createProtoAccessControl C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\internal\proto-access.js:19:34
+      1    0.0%    0.4%  Function: ^createHash node:crypto:132:20
+      1    0.0%    0.4%  Function: ^_storeHeader node:_http_outgoing:420:22
+      1    0.0%    0.4%  Function: ^__awaiter C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:18:54
+      1    0.0%    0.4%  Function: ^Writable.write C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston-transport\node_modules\readable-stream\lib\_stream_writable.js:286:37
+      1    0.0%    0.4%  Function: ^TopologyDescription C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\topology_description.js:29:16
+      1    0.0%    0.4%  Function: ^Timeout node:internal/timers:164:14
+      1    0.0%    0.4%  Function: ^SourceNode_walk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:221:53
+      1    0.0%    0.4%  Function: ^Session C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\session\session.js:24:17
+      1    0.0%    0.4%  Function: ^ServerResponse node:_http_server:192:24
+      1    0.0%    0.4%  Function: ^Readable.read C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\node_modules\readable-stream\lib\_stream_readable.js:361:36
+      1    0.0%    0.4%  Function: ^Readable.push C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\node_modules\readable-stream\lib\_stream_readable.js:213:36
+      1    0.0%    0.4%  Function: ^PathExpression C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:289:42
+      1    0.0%    0.4%  Function: ^MustacheStatement C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:215:48
+      1    0.0%    0.4%  Function: ^Msg C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\commands.js:317:16
+      1    0.0%    0.4%  Function: ^Module._resolveLookupPaths node:internal/modules/cjs/loader:714:38
+      1    0.0%    0.4%  Function: ^HostAddress C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:871:16
+      1    0.0%    0.4%  Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:331:47
+      1    0.0%    0.4%  Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:251:47
+      1    0.0%    0.4%  Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:167:47
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+    242    0.4%   98.8%  JavaScript
+      0    0.0%    0.0%  C++
+    267    0.4%  109.0%  GC
+  65532   99.6%          Shared libraries
+      3    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+  62497   95.0%  C:\Windows\SYSTEM32\ntdll.dll
+    729    1.2%    C:\Program Files\nodejs\node.exe
+     84   11.5%      LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connect.js:88:85
+     84  100.0%        Function: ^onMessage C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:157:14
+     84  100.0%          Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:61:44
+     84  100.0%            Function: ^emit node:events:460:44
+     77   10.6%      LazyCompile: ~RTTPinger C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:268:16
+     77  100.0%        Function: ^checkServer C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:143:21
+     77  100.0%          Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:226:12
+     77  100.0%            Function: ^MonitorInterval._executeAndReschedule C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:337:38
+     62    8.5%      LazyCompile: ~module.exports.evaluate C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:277:35
+     62  100.0%        LazyCompile: ~exports.find C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\lib\pre-binding.js:17:24
+     62  100.0%          Function: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bcrypt\bcrypt.js:1:1
+     62  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+     47    6.4%      LazyCompile: ~Collection C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\collection.js:64:16
+     47  100.0%        LazyCompile: ~collection C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\db.js:195:15
+     47  100.0%          LazyCompile: ~NativeCollection.onOpen C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:45:45
+     47  100.0%            LazyCompile: ~Connection.onOpen C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\connection.js:637:39
+     27    3.7%      Function: ^emit node:events:460:44
+     25   92.6%        LazyCompile: ~Readable.unpipe node:internal/streams/readable:851:37
+     25  100.0%          LazyCompile: ~unpipe node:internal/streams/readable:806:18
+     25  100.0%            LazyCompile: ~onerror node:internal/streams/readable:775:19
+      1    3.7%        LazyCompile: ~failureHandler C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:146:28
+      1  100.0%          Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:178:73
+      1  100.0%            LazyCompile: ~onClose C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:129:12
+      1    3.7%        LazyCompile: ~emitErrorNT node:internal/streams/destroy:136:21
+      1  100.0%          LazyCompile: ~emitErrorCloseNT node:internal/streams/destroy:115:26
+      1  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:67:35
+     22    3.0%      LazyCompile: ~resetMonitorState C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:133:27
+     22  100.0%        LazyCompile: ~reset C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:104:10
+     22  100.0%          LazyCompile: ~markServerUnknown C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\server.js:284:27
+     22  100.0%            LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\server.js:60:35
+     20    2.7%      LazyCompile: ~checkServerIdentity node:tls:280:59
+     20  100.0%        LazyCompile: ~onConnectSecure node:_tls_wrap:1524:25
+     20  100.0%          Function: ^emit node:events:460:44
+     20  100.0%            Function: ^TLSSocket._finishInit node:_tls_wrap:926:43
+     20    2.7%      C:\Program Files\nodejs\node.exe
+      3   15.0%        Function: ^FastBuffer node:internal/buffer:958:14
+      2   66.7%          Function: ^createUnsafeBuffer node:internal/buffer:1059:28
+      1   50.0%            Function: ^allocate node:buffer:403:18
+      1   50.0%            Function: ^allocUnsafeSlow node:buffer:388:50
+      1   33.3%          Function: ^alloc node:buffer:365:30
+      1  100.0%            Function: ^serialize C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bson\lib\bson.js:110:19
+      2   10.0%        LazyCompile: *extend C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\utils.js:28:16
+      1   50.0%          Function: ^createNewLookupObject C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\internal\create-new-lookup-object.js:15:31
+      1  100.0%            Function: ^createProtoAccessControl C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\internal\proto-access.js:19:34
+      1   50.0%          Function: ^createFrame C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\utils.js:110:21
+      1  100.0%            Function: ^initData C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\runtime.js:342:18
+      1    5.0%        LazyCompile: ~stringToPath C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\get-intrinsic\index.js:210:41
+      1  100.0%          LazyCompile: ~GetIntrinsic C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\get-intrinsic\index.js:253:39
+      1  100.0%            Function: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\call-bind\index.js:1:1
+      1    5.0%        LazyCompile: ~parseOptions C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\connection_string.js:195:22
+      1  100.0%          LazyCompile: ~MongoClient C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\mongo_client.js:43:16
+      1  100.0%            LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\connection.js:799:31
+      1    5.0%        LazyCompile: ~parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bytes\index.js:141:15
+      1  100.0%          LazyCompile: ~json C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\body-parser\lib\types\json.js:50:15
+      1  100.0%            Script: ~<anonymous> file:///C:/Users/nicocastx/Desktop/cursoBackend/clasesBackend/server.js:1:1
+      1    5.0%        LazyCompile: ~enable C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\engine.io\node_modules\debug\src\common.js:162:17
+      1  100.0%          LazyCompile: ~setup C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\engine.io\node_modules\debug\src\common.js:7:15
+      1  100.0%            Function: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\engine.io\node_modules\debug\src\node.js:1:1
+      1    5.0%        LazyCompile: ~createFunctionContext C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:216:56
+      1  100.0%          LazyCompile: ~compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%            LazyCompile: ~compileInput C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      1    5.0%        LazyCompile: ~connect C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\topology.js:154:12
+      1  100.0%          LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\mongo_client.js:136:49
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/util:350:24
+      1    5.0%        LazyCompile: ~braceExpand C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\node_modules\minimatch\minimatch.js:109:21
+      1  100.0%          LazyCompile: ~braceExpand C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\node_modules\minimatch\minimatch.js:409:15
+      1  100.0%            LazyCompile: ~make C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\node_modules\minimatch\minimatch.js:188:8
+      1    5.0%        LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs\build\index.cjs:1:46293
+      1  100.0%          LazyCompile: ~Xt C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs\build\index.cjs:1:28448
+      1  100.0%            LazyCompile: ~fe.Yargs C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs\build\index.cjs:1:61285
+      1    5.0%        LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs\build\index.cjs:1:1155
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            LazyCompile: ~o C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs\build\index.cjs:1:937
+      1    5.0%        LazyCompile: *objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      1  100.0%          LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    5.0%        LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%          LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:227:47
+      1  100.0%            LazyCompile: *step C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+      1    5.0%        Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%          Function: ^nativeModuleRequire node:internal/bootstrap/loaders:353:29
+      1  100.0%            LazyCompile: ~initializeCJSLoader node:internal/process/pre_execution:535:29
+      1    5.0%        Function: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1    5.0%        Function: ^next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1  100.0%          Function: ^lex C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:525:30
+      1  100.0%            Function: ^lex C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:295:25
+      1    5.0%        Function: ^isNextWhitespace C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\whitespace-control.js:165:26
+      1  100.0%          Function: ^WhitespaceControl.Program C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\whitespace-control.js:19:48
+      1  100.0%            Function: ^accept C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\visitor.js:57:26
+     13    1.8%      LazyCompile: ~Readable.unpipe node:internal/streams/readable:851:37
+     13  100.0%        LazyCompile: ~unpipe node:internal/streams/readable:806:18
+     13  100.0%          LazyCompile: ~onerror node:internal/streams/readable:775:19
+     13  100.0%            Function: ^emit node:events:460:44
+     13    1.8%      LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:235:48
+     13  100.0%        C:\Program Files\nodejs\node.exe
+     13  100.0%          Function: ^createFunctionContext C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:216:56
+     13  100.0%            Function: ^compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+     13    1.8%      LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+     13  100.0%        LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+     12   92.3%          Function: ^compileInput C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+     12  100.0%            Function: ^ret C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:515:15
+      1    7.7%          LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:227:47
+      1  100.0%            LazyCompile: *step C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+     11    1.5%      Function: ^afterWriteDispatched node:internal/stream_base_commons:155:30
+     11  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+     11  100.0%          Function: ^Socket._writeGeneric node:net:891:42
+     11  100.0%            Function: ^Socket._write node:net:928:35
+     10    1.4%      LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\connection.js:906:45
+     10  100.0%        Function: ^emit node:events:460:44
+     10  100.0%          Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\mongo_client.js:132:36
+     10  100.0%            Function: ^emit node:events:460:44
+
+   3031    4.6%  C:\Program Files\nodejs\node.exe
+   2191   72.3%    C:\Program Files\nodejs\node.exe
+    355   16.2%      Function: ^compileFunction node:vm:316:25
+    351   98.9%        Function: ^wrapSafe node:internal/modules/cjs/loader:1073:18
+    351  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+    336   95.7%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+     15    4.3%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      4    1.1%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1073:18
+      4  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      4  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+    236   10.8%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+    236  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+    236  100.0%          Function: ^Socket._writeGeneric node:net:891:42
+    236  100.0%            Function: ^Socket._write node:net:928:35
+    150    6.8%      Function: ^moduleStrategy node:internal/modules/esm/translators:114:56
+    150  100.0%        Function: ^moduleProvider node:internal/modules/esm/loader:452:28
+    150  100.0%          C:\Program Files\nodejs\node.exe
+    121    5.5%      Function: ^statSync node:fs:1588:18
+    113   93.4%        Function: ^tryStat C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\view.js:174:17
+    112   99.1%          Function: ^resolve C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\view.js:146:42
+    112  100.0%            Function: ^lookup C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\view.js:104:40
+      6    5.0%        Function: ^tryStatSync node:internal/modules/esm/resolve:176:3
+      5   83.3%          Function: ^finalizeResolution node:internal/modules/esm/resolve:290:28
+      5  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:894:23
+      1   16.7%          Function: ^packageResolve node:internal/modules/esm/resolve:804:24
+      1  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:894:23
+     76    3.5%      Function: ^stat node:internal/modules/cjs/loader:158:14
+     54   71.1%        Function: ^tryFile node:internal/modules/cjs/loader:431:17
+     44   81.5%          Function: ^tryExtensions node:internal/modules/cjs/loader:447:23
+     36   81.8%            Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      7   15.9%            Function: ^tryPackage node:internal/modules/cjs/loader:385:20
+      1    2.3%            LazyCompile: ~tryPackage node:internal/modules/cjs/loader:385:20
+      5    9.3%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:541:28
+      5  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      3    5.6%          Function: ^tryPackage node:internal/modules/cjs/loader:385:20
+      2   66.7%            Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      1   33.3%            LazyCompile: *Module._findPath node:internal/modules/cjs/loader:541:28
+      2    3.7%          LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:1001:31
+      1   50.0%            LazyCompile: *Module._findPath node:internal/modules/cjs/loader:541:28
+      1   50.0%            Function: ^resolveExports node:internal/modules/cjs/loader:519:24
+     22   28.9%        Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+     20   90.9%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+     20  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      2    9.1%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      2  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:807:24
+     71    3.2%      C:\Program Files\nodejs\node.exe
+      5    7.0%        LazyCompile: *quotedString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      3   60.0%          Function: ^pushSource C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      2   66.7%            Function: ^append C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:394:26
+      1   33.3%            Function: ^appendEscaped C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:416:40
+      1   20.0%          Function: ^quotedString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:998:38
+      1  100.0%            Function: ^setupParams C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:1034:36
+      1   20.0%          Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:130:39
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      3    4.2%        LazyCompile: *parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      2   66.7%          LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:227:47
+      2  100.0%            LazyCompile: *step C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+      1   33.3%          Function: ^parseWithoutProcessing C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      1  100.0%            Function: ^parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      3    4.2%        Function: ^expressInit C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\middleware\init.js:29:30
+      3  100.0%          LazyCompile: *trim_prefix C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:293:23
+      3  100.0%            LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:177:16
+      3    4.2%        Function: ^checkInvalidHeaderChar node:_http_common:221:32
+      3  100.0%          Function: ^<anonymous> node:_http_outgoing:618:45
+      3  100.0%            Function: ^setHeader node:_http_outgoing:642:57
+      2    2.8%        LazyCompile: *pushSource C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      1   50.0%          Function: ^appendEscaped C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:416:40
+      1  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1   50.0%          Function: ^append C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:394:26
+      1  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      2    2.8%        LazyCompile: *parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\node_modules\minimatch\minimatch.js:413:9
+      2  100.0%          C:\Program Files\nodejs\node.exe
+      2  100.0%            Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\node_modules\minimatch\minimatch.js:222:19
+      2    2.8%        Function: ^strEscape C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\safe-stable-stringify\index.js:56:20
+      2  100.0%          Function: ^stringifyFnReplacer C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\safe-stable-stringify\index.js:230:32
+      2  100.0%            Function: ^stringifyFnReplacer C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\safe-stable-stringify\index.js:230:32
+      2    2.8%        Function: ^stat node:internal/modules/cjs/loader:158:14
+      2  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      1   50.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      1   50.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      2    2.8%        Function: ^readPackage node:internal/modules/cjs/loader:326:21
+      2  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:368:26
+      1   50.0%            Function: ^trySelf node:internal/modules/cjs/loader:488:17
+      1   50.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      2    2.8%        Function: ^pipe C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\send\index.js:506:43
+      2  100.0%          Function: ^serveStatic C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\serve-static\index.js:72:31
+      2  100.0%            LazyCompile: *trim_prefix C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:293:23
+      2    2.8%        Function: ^getOwn node:internal/bootstrap/loaders:187:16
+      2  100.0%          Function: ^syncExports node:internal/bootstrap/loaders:304:14
+      1   50.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:290:15
+      1   50.0%            Function: ^<anonymous> node:internal/bootstrap/loaders:290:15
+      2    2.8%        Function: ^fromString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:315:22
+      2  100.0%          Function: ^ns C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:293:12
+      2  100.0%            Function: ^measureRoundTripTime C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\monitor.js:288:30
+      2    2.8%        Function: ^finish C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\common.js:122:17
+      2  100.0%          Function: ^Glob._finish C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\glob.js:185:35
+      2  100.0%            Function: ^done C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\glob\glob.js:171:17
+      1    1.4%        LazyCompile: ~parseOptions C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\node_modules\semver\internal\parse-options.js:4:22
+      1  100.0%          LazyCompile: ~SemVer C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\node_modules\semver\classes\semver.js:8:15
+      1  100.0%            LazyCompile: ~parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\node_modules\semver\functions\parse.js:6:15
+      1    1.4%        LazyCompile: ~next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1  100.0%          LazyCompile: ~lex C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:525:30
+      1  100.0%            LazyCompile: ~lex C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:295:25
+      1    1.4%        LazyCompile: ~module.exports.get_best_napi_build_version C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\lib\util\napi.js:187:54
+      1  100.0%          LazyCompile: ~module.exports.validate_package_json C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\lib\util\napi.js:46:48
+      1  100.0%            LazyCompile: ~validate_config C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\lib\util\versioning.js:195:25
+      1    1.4%        LazyCompile: ~merge C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\merge-descriptors\index.js:34:15
+      1  100.0%          LazyCompile: ~createApplication C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\express.js:37:27
+      1  100.0%            Script: ~<anonymous> file:///C:/Users/nicocastx/Desktop/cursoBackend/clasesBackend/server.js:1:1
+      1    1.4%        LazyCompile: ~forFunctions C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\lib\winston\common.js:32:15
+      1  100.0%          Function: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\winston\lib\winston.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1    1.4%        LazyCompile: ~finalizeResolution node:internal/modules/esm/resolve:290:28
+      1  100.0%          LazyCompile: ~moduleResolve node:internal/modules/esm/resolve:894:23
+      1  100.0%            LazyCompile: ~defaultResolve node:internal/modules/esm/resolve:1034:30
+      1    1.4%        LazyCompile: ~de file:///C:/Users/nicocastx/Desktop/cursoBackend/clasesBackend/node_modules/@faker-js/faker/dist/esm/chunk-G6GIS7LZ.mjs:12:15055
+      1  100.0%          Script: ~<anonymous> file:///C:/Users/nicocastx/Desktop/cursoBackend/clasesBackend/node_modules/@faker-js/faker/dist/esm/index.mjs:1:1
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1    1.4%        LazyCompile: ~createToken C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\node_modules\semver\internal\re.js:11:21
+      1  100.0%          Function: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\@mapbox\node-pre-gyp\node_modules\semver\internal\re.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1    1.4%        LazyCompile: ~checkCollectionName C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:22:29
+      1  100.0%          LazyCompile: ~Collection C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\collection.js:64:16
+      1  100.0%            LazyCompile: ~collection C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\db.js:195:15
+      1    1.4%        LazyCompile: ~Kareem.filter C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\kareem\index.js:435:35
+      1  100.0%          LazyCompile: ~applyHooks C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\helpers\model\applyHooks.js:40:20
+      1  100.0%            LazyCompile: ~compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\model.js:5028:33
+      1    1.4%        LazyCompile: ~CreateIndexesOperation C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\operations\indexes.js:84:16
+      1  100.0%          LazyCompile: ~CreateIndexOperation C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\operations\indexes.js:127:16
+      1  100.0%            LazyCompile: ~createIndex C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\collection.js:253:16
+      1    1.4%        LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs-parser\build\index.cjs:980:34
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            LazyCompile: ~combineAliases C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\yargs-parser\build\index.cjs:957:24
+      1    1.4%        LazyCompile: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\helpers\pluralize.js:86:34
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            LazyCompile: ~pluralize C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongoose\lib\helpers\pluralize.js:82:19
+      1    1.4%        LazyCompile: *objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      1  100.0%          LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    1.4%        LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1  100.0%          LazyCompile: *parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1  100.0%            Function: ^parseWithoutProcessing C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      1    1.4%        LazyCompile: *header C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:777:29
+      1  100.0%          Function: ^res.format C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:684:22
+      1  100.0%            Function: ^redirect C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:936:33
+      1    1.4%        LazyCompile: *checkInvalidHeaderChar node:_http_common:221:32
+      1  100.0%          Function: ^<anonymous> node:_http_outgoing:618:45
+      1  100.0%            Function: ^setHeader node:_http_outgoing:642:57
+      1    1.4%        LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:130:39
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Function: ^objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      1    1.4%        LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:251:47
+      1  100.0%          LazyCompile: *step C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:31:18
+      1  100.0%            LazyCompile: *<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-handlebars\dist\express-handlebars.js:20:46
+      1    1.4%        Function: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:353:29
+      1    1.4%        Function: ~<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\stack-trace\lib\stack-trace.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    1.4%        Function: ^value node:internal/console/constructor:315:20
+      1  100.0%          Function: ^value node:internal/console/constructor:337:20
+      1  100.0%            Function: ^log node:internal/console/constructor:376:6
+      1    1.4%        Function: ^set maxAge C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\session\cookie.js:83:13
+      1  100.0%          Function: ^Cookie C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\session\cookie.js:25:46
+      1  100.0%            Function: ^store.generate C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\index.js:158:28
+      1    1.4%        Function: ^realpathSync node:fs:2474:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:440:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:431:17
+      1    1.4%        Function: ^parse C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\content-type\index.js:106:16
+      1  100.0%          Function: ^setCharset C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\utils.js:248:41
+      1  100.0%            Function: ^send C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:111:25
+      1    1.4%        Function: ^mergeSource C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:267:36
+      1  100.0%          Function: ^createFunctionContext C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:216:56
+      1  100.0%            Function: ^compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    1.4%        Function: ^header C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:777:29
+      1  100.0%          Function: ^res.format C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:684:22
+      1  100.0%            Function: ^redirect C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:936:33
+      1    1.4%        Function: ^format C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\content-type\index.js:65:17
+      1  100.0%          LazyCompile: *send C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:111:25
+      1  100.0%            Function: ^done C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:1033:27
+      1    1.4%        Function: ^encodeUrl C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\encodeurl\index.js:56:20
+      1  100.0%          Function: ^location C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:906:33
+      1  100.0%            Function: ^redirect C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\response.js:936:33
+      1    1.4%        Function: ^databaseNamespace C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:354:27
+      1  100.0%          Function: ^Msg C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\commands.js:317:16
+      1  100.0%            Function: ^command C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:274:12
+      1    1.4%        Function: ^command C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connection.js:274:12
+      1  100.0%          Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connect.js:78:43
+      1  100.0%            LazyCompile: ~prepareHandshakeDocument C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\cmap\connect.js:151:34
+      1    1.4%        Function: ^assembleStyles C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\ansi-styles\index.js:61:24
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      1    1.4%        Function: ^app.<computed> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\application.js:490:25
+      1  100.0%          Function: ^handle C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\application.js:165:29
+      1  100.0%            Function: ^app C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\express.js:38:21
+      1    1.4%        Function: ^_writeRaw node:_http_outgoing:371:19
+      1  100.0%          Function: ^_send node:_http_outgoing:336:49
+      1  100.0%            Function: ^write_ node:_http_outgoing:831:16
+      1    1.4%        Function: ^_storeHeader node:_http_outgoing:420:22
+      1  100.0%          Function: ^writeHead node:_http_server:338:19
+      1  100.0%            Function: ^writeHead C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\on-headers\index.js:28:29
+      1    1.4%        Function: ^HostAddress C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:871:16
+      1  100.0%          Function: ^fromString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\utils.js:929:22
+      1  100.0%            Function: ^get hostAddress C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\mongodb\lib\sdam\server_description.js:65:20
+      1    1.4%        Function: ^FastBuffer node:internal/buffer:958:14
+      1  100.0%          Function: ^alloc node:buffer:365:30
+      1  100.0%            Function: ^serialize C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\bson\lib\bson.js:110:19
+     44    2.0%      Function: ^initialize C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\passport\lib\middleware\initialize.js:51:29
+     26   59.1%        LazyCompile: *trim_prefix C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:293:23
+     26  100.0%          LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:177:16
+     16   61.5%            LazyCompile: *session C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\index.js:179:26
+     10   38.5%            Function: ^session C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express-session\index.js:179:26
+     13   29.5%        LazyCompile: *handle C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\layer.js:86:49
+     13  100.0%          Function: ^trim_prefix C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:293:23
+     11   84.6%            LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:177:16
+      2   15.4%            Function: ^<anonymous> C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:280:64
+      5   11.4%        Function: ^handle C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\layer.js:86:49
+      5  100.0%          Function: ^trim_prefix C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:293:23
+      5  100.0%            LazyCompile: *next C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\express\lib\router\index.js:177:16
+     43    2.0%      LazyCompile: *SourceNode_walk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:221:53
+     41   95.3%        LazyCompile: *SourceNode_walk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:221:53
+     41  100.0%          LazyCompile: *SourceNode_walk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:221:53
+     40   97.6%            LazyCompile: *SourceNode_walk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:221:53
+      1    2.4%            Function: ^SourceNode_toString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:318:61
+      2    4.7%        Function: ^SourceNode_toString C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\source-map\lib\source-node.js:318:61
+      2  100.0%          C:\Program Files\nodejs\node.exe
+      1   50.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1   50.0%            Function: ^createFunctionContext C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:216:56
+     41    1.9%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+     30   73.2%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:353:29
+      9   30.0%          Function: ~<anonymous> node:tls:1:1
+      9  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      4   13.3%          Function: ~<anonymous> node:http:1:1
+      4  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    6.7%          Function: ~<anonymous> node:internal/child_process:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    6.7%          Function: ~<anonymous> node:child_process:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    6.7%          Function: ~<anonymous> node:_http_client:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          LazyCompile: ~lazyWebCrypto node:crypto:125:23
+      1  100.0%            LazyCompile: ~get node:crypto:369:8
+      1    3.3%          LazyCompile: ~lazyLoadStreams node:fs:2907:25
+      1  100.0%            LazyCompile: ~get ReadStream node:fs:3050:17
+      1    3.3%          LazyCompile: ~initCJSParse node:internal/modules/esm/translators:58:28
+      1  100.0%            LazyCompile: ~commonjsStrategy node:internal/modules/esm/translators:147:60
+      1    3.3%          LazyCompile: ~get node:dns:350:8
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1    3.3%          Function: ~<anonymous> node:internal/cluster/primary:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          Function: ~<anonymous> node:internal/assert/assertion_error:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          Function: ~<anonymous> node:https:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          Function: ~<anonymous> node:assert:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          Function: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          Function: ~<anonymous> node:_tls_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.3%          Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      8   19.5%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      8  100.0%          Function: ^loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+      8  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      3    7.3%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      3  100.0%          LazyCompile: ~loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+      3  100.0%            LazyCompile: ~builtinStrategy node:internal/modules/esm/translators:253:58
+     36    1.6%      Function: ^readSync node:fs:705:18
+     36  100.0%        Function: ^tryReadSync node:fs:444:21
+     36  100.0%          Function: ^readFileSync node:fs:465:22
+     36  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+     36    1.6%      Function: ^openSync node:fs:591:18
+     36  100.0%        Function: ^readFileSync node:fs:465:22
+     33   91.7%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+     33  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      3    8.3%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      3  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+     35    1.6%      Function: ^realpathSync node:fs:2474:22
+     27   77.1%        Function: ^toRealPath node:internal/modules/cjs/loader:440:20
+     24   88.9%          Function: ^tryFile node:internal/modules/cjs/loader:431:17
+     19   79.2%            Function: ^tryExtensions node:internal/modules/cjs/loader:447:23
+      3   12.5%            LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:1001:31
+      2    8.3%            Function: ^tryPackage node:internal/modules/cjs/loader:385:20
+      3   11.1%          Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      3  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      8   22.9%        Function: ^finalizeResolution node:internal/modules/esm/resolve:290:28
+      8  100.0%          Function: ^moduleResolve node:internal/modules/esm/resolve:894:23
+      8  100.0%            Function: ^defaultResolve node:internal/modules/esm/resolve:1034:30
+     30    1.4%      Function: ^writevGeneric node:internal/stream_base_commons:122:23
+     30  100.0%        Function: ^Socket._writeGeneric node:net:891:42
+     30  100.0%          Function: ^Socket._writev node:net:923:36
+     30  100.0%            Function: ^doWrite node:internal/streams/writable:401:17
+     22    1.0%      LazyCompile: *wrap C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+     10   45.5%        LazyCompile: *generateList C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:143:38
+      8   80.0%          LazyCompile: *objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      8  100.0%            LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      2   20.0%          Function: ^objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      1   50.0%            LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1   50.0%            Function: ^objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:1002:40
+      6   27.3%        LazyCompile: *castChunk C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:52:19
+      3   50.0%          LazyCompile: *wrap C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      2   66.7%            Function: ^push C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:868:22
+      1   33.3%            LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      3   50.0%          Function: ^generateList C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:143:38
+      3  100.0%            Function: ^objectLiteral C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:123:40
+      2    9.1%        LazyCompile: *resolvePath C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:492:36
+      1   50.0%          LazyCompile: *lookupOnContext C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:448:44
+      1  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1   50.0%          Function: ^lookupOnContext C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:448:44
+      1  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      2    9.1%        LazyCompile: *functionCall C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:113:38
+      2  100.0%          LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      2  100.0%            LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    4.5%        LazyCompile: *invokeAmbiguous C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:699:44
+      1  100.0%          LazyCompile: *compile C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%            Function: ^compileInput C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      1    4.5%        Function: ^appendToBuffer C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:42:42
+      1  100.0%          Function: ^pushSource C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      1  100.0%            Function: ^appendEscaped C:\Users\nicocastx\Desktop\cursoBackend\clasesBackend\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:416:40
+     22    1.0%      Function: ^read node:internal/modules/package_json_reader:16:14
+     20   90.9%        Function: ^readPackage node:internal/modules/cjs/loader:326:21
+     15   75.0%          Function: ^resolveExports node:internal/modules/cjs/loader:519:24
+     15  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      3   15.0%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:541:28
+      3  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      2   10.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:368:26
+      1   50.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1   50.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    4.5%        LazyCompile: *readPackageScope node:internal/modules/cjs/loader:368:26
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    4.5%        Function: ^getPackageConfig node:internal/modules/esm/package_config:40:26
+      1  100.0%          LazyCompile: ~packageResolve node:internal/modules/esm/resolve:804:24
+      1  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:894:23
+

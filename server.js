@@ -1,4 +1,3 @@
-//!TODO: revisar la forma en que se renderiza la data hacia el handlebars, si hacerlo por sockets, probablemente asi sea, replantear
 //Importacion de dependencias requeridas
 import express from "express";
 import { createServer } from "http";
@@ -32,6 +31,9 @@ import { fork } from "child_process";
 import cluster from "cluster";
 import os from "os";
 
+//importacion de manejo de loggers
+import logger from "./logger.js";
+
 //importacion de manejo de dirname
 import * as url from "url";
 
@@ -60,7 +62,12 @@ const io = new Server(httpServer);
 
 //Variables manejo de objetos
 let productos = [];
-cProd.getAll().then((data) => (productos = data));
+cProd
+  .getAll()
+  .then((data) => (productos = data))
+  .catch((err) => {
+    logger.error(`Se registro el siguiente error al momento de cargar productos: ${err}`);
+  });
 
 //Variables y asignacion de productos por faker
 let productosTest = [];
@@ -74,6 +81,7 @@ while (i < 5) {
   };
   productosTest.push(newProd);
 }
+
 let usuarios = [];
 cUsers.getAll().then((data) => (usuarios = data));
 
@@ -111,15 +119,20 @@ const schMsjs = new schema.Entity("mensajes", {
 let normMsjs = [];
 let msjsNotNorm = [];
 
-cMsg.getAll().then((data) => {
-  msjsNotNorm = {
-    id: "1",
-    mensajes: data.map((msj) => {
-      return { ...msj._doc, id: msj._id.toString() };
-    }),
-  };
-  normMsjs = normalize(msjsNotNorm, schMsjs);
-});
+cMsg
+  .getAll()
+  .then((data) => {
+    msjsNotNorm = {
+      id: "1",
+      mensajes: data.map((msj) => {
+        return { ...msj._doc, id: msj._id.toString() };
+      }),
+    };
+    normMsjs = normalize(msjsNotNorm, schMsjs);
+  })
+  .catch((err) => {
+    logger.error(`Se registro el siguiente error al momento de cargar mensajes: ${err}`);
+  });
 //#endregion Normalize
 //#region configuracion de app
 app.use(
@@ -235,6 +248,12 @@ function isAuth(req, res, next) {
   }
 }
 
+function loggerInfo(req, res, next) {
+  const { url, method } = req;
+  logger.info(`Ingresando a la ruta ${url} metodo ${method}`);
+  next();
+}
+
 //#endregion Middlewares
 //#region Manejo de sockets
 io.on("connection", (socket) => {
@@ -280,49 +299,58 @@ if (MODO === "cluster" && cluster.isPrimary) {
   });
 } else {
   console.log(`El proceso worker se inicio en ${process.pid}`);
-  app.get("/register", (req, res) => {
+  app.get("/register", loggerInfo, (req, res) => {
     res.render("register");
   });
 
   app.post(
     "/register",
+    loggerInfo,
     passport.authenticate("register", {
       failureRedirect: "/failregister",
       successRedirect: "/login",
     })
   );
 
-  app.get("/failregister", (req, res) => {
+  app.get("/failregister", loggerInfo, (req, res) => {
     res.render("failregister");
   });
 
-  app.get("/login", (req, res) => {
+  app.get("/login", loggerInfo, (req, res) => {
     res.render("login");
   });
 
   app.post(
     "/login",
+    loggerInfo,
     passport.authenticate("login", {
       failureRedirect: "/loginerror",
       successRedirect: "/",
     })
   );
 
-  app.get("/loginerror", (req, res) => {
+  app.get("/loginerror", loggerInfo, (req, res) => {
     res.render("faillogin");
   });
 
-  app.get("/", isAuth, (req, res) => {
-    cProd.getAll().then((data) => {
-      res.render("formProd", {
-        data: data,
-        hasProd: data.length > 0,
-        nombreUsuario: req.user.email,
+  app.get("/", loggerInfo, isAuth, (req, res) => {
+    cProd
+      .getAll()
+      .then((data) => {
+        res.render("formProd", {
+          data: data,
+          hasProd: data.length > 0,
+          nombreUsuario: req.user.email,
+        });
+      })
+      .catch((err) => {
+        logger.error(
+          `Se registro el siguiente error al momento de cargar productos: ${err}`
+        );
       });
-    });
   });
 
-  app.get("/logout", (req, res) => {
+  app.get("/logout", loggerInfo, (req, res) => {
     const usuarioName = req.user.email;
     req.session.destroy((err) => {
       if (err) {
@@ -335,14 +363,14 @@ if (MODO === "cluster" && cluster.isPrimary) {
     });
   });
 
-  app.get("/api/productos-test", async (req, res) => {
+  app.get("/api/productos-test", loggerInfo, async (req, res) => {
     res.render("prodTest", {
       data: productosTest,
       hasProd: productosTest.length > 0,
     });
   });
 
-  app.get("/info", (req, res) => {
+  app.get("/info", loggerInfo, (req, res) => {
     res.render("info", {
       args: process.argv.slice(2),
       nOS: process.platform,
@@ -360,16 +388,23 @@ if (MODO === "cluster" && cluster.isPrimary) {
     if (!cant) {
       cant = 100000;
     }
-    const contadorFork = fork(__dirname + "contador.js");
+    /*const contadorFork = fork(__dirname + "contador.js");
     contadorFork.on("message", (result) => {
       if (result == "listo") {
         contadorFork.send(cant);
       } else {
         res.render("randoms", {
-          randomObj: JSON.stringify(result)
+          randomObj: JSON.stringify(result),
         });
       }
-    });
+    });*/
+  });
+
+  app.get("*", (req, res) => {
+    const { url, method } = req;
+
+    logger.warn(`ruta ${url} metodo ${method} no implementado`);
+    res.json({ error: "La ruta y metodo solicitado no existen" });
   });
 
   httpServer.listen(PORT, () => {
