@@ -19,4 +19,4 @@ function run(url) {
 
 console.log("Autocannon corriendo");
 
-run("http://localhost:8080/");
+run("http://localhost:8080/info");

@@ -48,7 +48,7 @@ const yargs = parseArgs(process.argv.slice(2));
 //Configuracion de dotenv ------------------------------------------------------------------------------------------
 dotenv.config({ path: __dirname + "../.env" });
 
-//Inicializacion de variables ------------------------------------------------------------------------------------------
+//#region Inicializacion de variables 
 
 //variables de collections
 const cProd = new contenedorMDB(prodModel);
@@ -98,7 +98,7 @@ const { PORT, MODO } = yargs
 
 // Variables del numero de cpus para iniciar en cluster
 const numCPUs = os.cpus().length;
-
+//#endregion Inicializacion de variables
 //#region esquemas de normalizr
 const schAuthor = new schema.Entity("author", {}, { idAttribute: "mail" });
 
