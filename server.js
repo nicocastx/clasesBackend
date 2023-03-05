@@ -92,7 +92,7 @@ const { PORT, MODO } = yargs
     m: "MODO",
   })
   .default({
-    PORT: 8080,
+    PORT: process.env.PORT || 8080,
     MODO: "fork",
   }).argv;
 
