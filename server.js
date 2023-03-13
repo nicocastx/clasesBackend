@@ -323,7 +323,7 @@ if (MODO === "cluster" && cluster.isPrimary) {
   app.post(
     "/login",
     loggerInfo,
-    passport.authenticate("login", {
+     passport.authenticate("login", {
       failureRedirect: "/loginerror",
       successRedirect: "/",
     })
